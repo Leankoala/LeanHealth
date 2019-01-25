@@ -12,7 +12,9 @@ app.use(express.json()); // to support JSON-encoded bodies
 
 app.get('/self', function (req, res) {
 
-    let healthStatus = new HealthStatus('pass');
+    res.header("Content-Type", "application/health+json");
+
+    let healthStatus = new HealthStatus('pass', 'The health.js server is running on port ' + port);
     healthStatus.setDescription('Checks if the health.js server is working.')
 
     res.send(JSON.stringify(healthStatus.toJson(), null, 4));
