@@ -6,7 +6,7 @@ const app = express();
 
 const argv = require('yargs').argv;
 
-const port = argv['port'] || 3000;
+const port = argv['port'] || 80;
 
 app.use(express.json()); // to support JSON-encoded bodies
 
